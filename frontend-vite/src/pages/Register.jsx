@@ -2,8 +2,9 @@ import React from "react";
 import { Button, Checkbox, Form, Input, notification } from "antd";
 import axios from "../config/axios";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
-export default function Register() {
+export default function Register(props) {
   const navigate = useNavigate();
 
   const onFinish = (values) => {
@@ -31,6 +32,9 @@ export default function Register() {
 
   return (
     <div>
+      <Helmet>
+        <title>Sign Up</title>
+      </Helmet>
       <h1>Sign Up</h1>
       <div style={{ padding: "0 50px" }}>
         <Form

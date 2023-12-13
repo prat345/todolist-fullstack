@@ -4,7 +4,7 @@ import Profile from "../pages/Profile";
 import Register from "../pages/Register";
 
 const components = {
-  todoList: {
+  todo: {
     url: "/todo-list",
     component: TodoList,
   },
@@ -12,7 +12,7 @@ const components = {
     url: "/login",
     component: Login,
   },
-  Profile: {
+  profile: {
     url: "/profile",
     component: Profile,
   },
@@ -26,10 +26,12 @@ const components = {
 export default {
   guest: {
     allowedRoutes: [components.login, components.register],
+    protectedRoutes: [components.todo, components.profile],
     redirectRoutes: "/login",
   },
   user: {
     allowedRoutes: [components.todo, components.profile],
+    protectedRoutes: [components.login, components.register],
     redirectRoutes: "/profile",
   },
 };

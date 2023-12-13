@@ -1,4 +1,5 @@
 // pasport-jwt > decode JWT to get expire, secret key, payload(id, name) etc.
+// import in index.js
 
 const passport = require("passport");
 const { Strategy, ExtractJwt } = require("passport-jwt");
@@ -12,6 +13,7 @@ const option = {
 const JWTStrategy = new Strategy(option, async (payload, done) => {
   const targetUser = await db.User.findOne({ where: { id: payload.id } });
 
+  // Strategy will assign targetUser to req.user
   if (targetUser) {
     done(null, targetUser);
   } else {

@@ -3,6 +3,7 @@ const router = express.Router();
 const todoListContollers = require("../controllers/todoList");
 
 const passport = require("passport");
+// passport check JWT token
 const auth = passport.authenticate("jwt", { session: false });
 
 // must login before accessing todo-list > every route requires token

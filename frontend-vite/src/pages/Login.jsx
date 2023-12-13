@@ -3,6 +3,7 @@ import { Button, Checkbox, Form, Input, notification } from "antd";
 import axios from "../config/axios";
 import localStorageService from "../services/localStorageService";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function Login(props) {
   const navigate = useNavigate();
@@ -18,11 +19,11 @@ export default function Login(props) {
         // console.log(result);
         // token in response > data > token
         localStorageService.setToken(result.data.token);
-        // props.setRole("user");
+        props.setRole("user");
         notification.success({
           message: "Login success",
         });
-        navigate("/todo-list");
+        navigate("/profile");
       })
       .catch((err) => {
         console.error(err);
@@ -35,6 +36,9 @@ export default function Login(props) {
 
   return (
     <div>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <h1>Login</h1>
       <div style={{ padding: "0 50px" }}>
         <Form

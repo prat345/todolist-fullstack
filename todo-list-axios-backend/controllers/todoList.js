@@ -5,7 +5,9 @@ const db = require("../models");
 
 const getTodoList = async (req, res) => {
   // find todolist of each user from id
+  // console.log(req);
   const todoList = await db.TodoList.findAll({
+    // req.user assigned from Strategy from passport
     where: { user_id: req.user.id },
   });
   res.status(200).send(todoList);

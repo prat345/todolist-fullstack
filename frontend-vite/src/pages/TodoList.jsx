@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Input, List, Button, Row, Col, Divider, Typography } from "antd";
 import axios from "../config/axios";
 import Todo from "../components/Todo";
+import { Helmet } from "react-helmet";
 
 const { Text, Link } = Typography;
 
@@ -28,12 +29,15 @@ export default function TodoList() {
     fetchData();
   };
   const deleteItem = async (id) => {
-    await axios.delete(`/todo-list/${id}`);
+    await axios.delete(`/todo-list/${id}`); // id > params
     fetchData();
   };
 
   return (
     <div>
+      <Helmet>
+        <title>Todo List</title>
+      </Helmet>
       <h1>TodoList</h1>
       <Row justify="center" style={{ marginBottom: "50px" }}>
         <Divider />

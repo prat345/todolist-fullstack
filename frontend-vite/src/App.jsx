@@ -9,19 +9,21 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import PrivateRoutes from "./components/PrivateRoutes";
+import localStorageService from "./services/localStorageService";
 
 function App() {
+  const [role, setRole] = useState(localStorageService.getRole());
   return (
     <>
       <Navbar />
-      <Routes>
+      {/* <Routes>
         <Route exac path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/todo-list" element={<TodoList />} />
         <Route path="/profile" element={<Profile />} />
-      </Routes>
-      {/* <PrivateRoutes role="guest" /> */}
+      </Routes> */}
+      <PrivateRoutes role={role} setRole={setRole} />
     </>
   );
 }
