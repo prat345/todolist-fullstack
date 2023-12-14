@@ -14,6 +14,7 @@ const JWTStrategy = new Strategy(option, async (payload, done) => {
   const targetUser = await db.User.findOne({ where: { id: payload.id } });
 
   // Strategy will assign targetUser to req.user
+  // * only for the request that use passport in routes can access req.user
   if (targetUser) {
     done(null, targetUser);
   } else {

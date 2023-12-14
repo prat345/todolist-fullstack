@@ -34,14 +34,14 @@ export default function TodoList() {
   };
 
   return (
-    <div>
+    <div className="container">
       <Helmet>
         <title>Todo List</title>
       </Helmet>
       <h1>TodoList</h1>
-      <Row justify="center" style={{ marginBottom: "50px" }}>
+      <Row justify="center mb-10">
         <Divider />
-        <Col>
+        <Col span={24}>
           <Row>
             <Text type="warning">fill in new tasks</Text>
           </Row>
@@ -60,14 +60,13 @@ export default function TodoList() {
           </Row>
           <Divider />
           <Row>
-            <Col>
+            <Col span={24}>
               <List
-                style={{ width: "450px" }}
                 header={<h4>Todolist with backend & db</h4>}
                 bordered
                 dataSource={todoList}
                 renderItem={(obj) => (
-                  <List.Item>
+                  <List.Item className="bg-white">
                     <Todo
                       todo={obj}
                       delete={deleteItem}

@@ -35,12 +35,12 @@ export default function Login(props) {
   };
 
   return (
-    <div>
+    <div className="container">
       <Helmet>
         <title>Login</title>
       </Helmet>
       <h1>Login</h1>
-      <div style={{ padding: "0 50px" }}>
+      <div className="md:px-5 lg:px-8">
         <Form
           name="basic"
           labelCol={{
@@ -90,7 +90,7 @@ export default function Login(props) {
               span: 24,
             }}
           >
-            <Button type="primary" htmlType="submit">
+            <Button className="btn-primary" type="primary" htmlType="submit">
               Submit
             </Button>
           </Form.Item>

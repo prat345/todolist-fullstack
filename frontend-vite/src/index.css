@@ -1,3 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  p {
+    @apply my-2;
+  }
+  h1 {
+    font-size: 20px;
+    @apply mt-2 mb-8 text-gray-600 capitalize font-medium;
+  }
+}
+
+@layer components {
+  .container {
+    @apply py-4 px-4 sm:px-4 md:px-8;
+  }
+  .btn-primary {
+    @apply bg-blue-500 text-gray-300 hover:bg-blue-300 text-white;
+  }
+}
+
+@layer utilities {
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -29,12 +55,8 @@ body {
   min-height: 100vh;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(
-    120deg,
-    rgb(159 14 172) 25%,
-    rgb(255, 134, 36),
-    rgb(255 229 0)
-  );
+  background: radial-gradient(ellipse at top, #e8e8e8, transparent),
+    radial-gradient(ellipse at bottom, #0c899f, #eae9e5);
 }
 div#root {
   background-color: rgb(255, 255, 255, 0.9);

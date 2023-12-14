@@ -2,6 +2,16 @@ const db = require("../models");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const getUserDetail = async (req, res) => {
+  const targetUser = await db.User.findOne({
+    where: { id: req.user.id },
+  });
+  if (!targetUser) {
+    res.status(400).send({ message: "Unable to find user" });
+  }
+  res.status(200).send(targetUser);
+};
+
 const registerUser = async (req, res) => {
   const { username, password, name } = req.body;
   const targetUser = await db.User.findOne({ where: { username: username } });
@@ -51,6 +61,7 @@ const loginUser = async (req, res) => {
 };
 
 module.exports = {
+  getUserDetail,
   loginUser,
   registerUser,
 };
