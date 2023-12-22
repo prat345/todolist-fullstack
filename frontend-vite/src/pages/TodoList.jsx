@@ -64,9 +64,10 @@ export default function TodoList() {
               <List
                 header={<h4>Todolist with backend & db</h4>}
                 bordered
+                className="text-white"
                 dataSource={todoList}
                 renderItem={(obj) => (
-                  <List.Item className="bg-white">
+                  <List.Item>
                     <Todo
                       todo={obj}
                       delete={deleteItem}

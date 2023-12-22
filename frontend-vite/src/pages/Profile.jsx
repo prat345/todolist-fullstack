@@ -29,7 +29,7 @@ export default function Profile(props) {
       </Helmet>
       <h1>Profile</h1>
       <div className="flex flex-wrap justify-center items-center py-5">
-        <PersonCircle className="text-8xl text-gray-400" />
+        <PersonCircle className="text-8xl text-gray-200" />
         <div className="flex flex-col text-start ps-8">
           <p>
             <strong>Name:</strong> {user.name}
@@ -52,7 +52,12 @@ export default function Profile(props) {
             </Link>
           </Col>
           <Col span={6} className="mx-2">
-            <Button danger onClick={logout} className="w-full m-0">
+            <Button
+              danger
+              type="primary"
+              onClick={logout}
+              className="w-full m-0"
+            >
               Log out
             </Button>
           </Col>

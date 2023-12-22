@@ -46,10 +46,14 @@ function Todo(props) {
     content = (
       <Row style={{ width: "100%" }}>
         <Col span={2}>
-          <Row justify="start">{props.todo.id}</Row>
+          <Row justify="start" className="text-white">
+            {props.todo.id}
+          </Row>
         </Col>
         <Col span={10}>
-          <Row justify="start">{props.todo.task}</Row>
+          <Row justify="start" className="text-white">
+            {props.todo.task}
+          </Row>
         </Col>
         <Col span={6}>
           <Row justify="end">
